@@ -9,7 +9,9 @@ const CollaborativeRoom = () => {
     <RoomProvider id="my-room">
       <ClientSideSuspense fallback={<Loader />}>
         <div className="collaborative-room">
-            <Header />
+            <Header>
+                <></>
+            </Header>
             <Editor />
         </div>
       </ClientSideSuspense>

@@ -10,7 +10,7 @@ import Loader from "@/components/Loader";
 
 export function Provider({ children }: { children: ReactNode }) {
   return (
-    <LiveblocksProvider publicApiKey={"pk_prod_bj4f7s7IdimuqSCFlbPF_gH9TG6CKh1tQw928uwPwDm6jPoU3HvzTnEkw7FZiYq3"}>
+    <LiveblocksProvider publicApiKey="pk_/api/liveblocks-auth">
       <RoomProvider id="my-room">
         <ClientSideSuspense fallback={<Loader />}>
           {children}

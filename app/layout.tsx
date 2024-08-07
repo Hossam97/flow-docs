@@ -48,7 +48,6 @@ export default function RootLayout({
             fontSans.variable
           )}
         >
-          <Header />
           <Provider>{children}</Provider>
         </body>
       </html>

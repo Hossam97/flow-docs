@@ -1,11 +1,12 @@
+import { cn } from '@/lib/utils'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-const Header = () => {
+const Header = ({children, className}: HeaderProps) => {
   return (
-    <div className='header'>
+    <div className={cn('header', className)}>
         <Link href="/" className='md:w-[150px]'>
             <Image 
                 src="/assets/icons/logo.svg"
@@ -22,6 +23,7 @@ const Header = () => {
                 className='mr-2 md:hidden'
             />
         </Link>
+        {children}
         <SignedOut>
             <SignInButton />
           </SignedOut>
