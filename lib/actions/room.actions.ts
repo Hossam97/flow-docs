@@ -62,12 +62,7 @@ export const updateDocument = async (roomId: string, title: string) => {
         title
       }
     })
-    if(updatedRoom) {
-      console.log('updatedRoom:', updatedRoom)
-    };
-    console.log('revalidating...')
     revalidatePath(`/documents/${roomId}`);
-    console.log('revalidated')
     return parseStringify(updatedRoom);
 
   } catch (error) {

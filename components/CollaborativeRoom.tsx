@@ -10,6 +10,8 @@ import DocumentTitleEditor from "./ui/DocumentTitleEditor";
 const CollaborativeRoom = ({
   roomId,
   roomMetadata,
+  users,
+  currentUserType
 }: CollaborativeRoomProps) => {
 
   return (
@@ -25,7 +27,7 @@ const CollaborativeRoom = ({
               <ActiveCollaborators />
             </div>
           </Header>
-          <Editor />
+          <Editor roomId={roomId} currentUserType={currentUserType} />
         </div>
       </ClientSideSuspense>
     </RoomProvider>
