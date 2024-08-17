@@ -45,6 +45,16 @@ export const getDocument = async ({
   return parseStringify(room);
 };
 
+export const getAllDocuments = async (userEmail: string) => {
+  try {
+    const rooms = await liveblocks.getRooms({userId: userEmail});
+    if(!rooms) console.log('error')
+    return parseStringify(rooms);
+  } catch (error) {
+    console.log('Error while fetching rooms', error)
+  }
+};
+
 export const updateDocument = async (roomId: string, title: string) => {
   try {
     const updatedRoom = await liveblocks.updateRoom(roomId, {
