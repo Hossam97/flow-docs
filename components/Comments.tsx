@@ -22,7 +22,6 @@ const ThreadWrapper = ({ thread }: ThreadWrapperProps) => {
 
 const Comments = () => {
   const { threads } = useThreads();
-  console.log("Rendering comments...");
   return (
     <div className="comments-container">
         <p>Sticky comments</p>
