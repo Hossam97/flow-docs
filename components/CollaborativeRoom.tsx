@@ -23,17 +23,18 @@ const CollaborativeRoom = ({
               roomId={roomId}
               documentTitle={roomMetadata.title}
             />
+            <span className="view-only-tag">{currentUserType === 'viewer' && 'View only'}</span>
             <div className="flex w-full flex-1 justify-end gap-2">
               <ActiveCollaborators />
               <ShareModal
                 roomId={roomId}
                 creatorId={roomMetadata.creatorId}
-                collaborators={users}
-                currentUserType={currentUserType}
+                collaborators={users!}
+                currentUserType={currentUserType!}
               />
             </div>
           </Header>
-          <Editor roomId={roomId} currentUserType={currentUserType} />
+          <Editor roomId={roomId} currentUserType={currentUserType!} />
         </div>
       </ClientSideSuspense>
     </RoomProvider>

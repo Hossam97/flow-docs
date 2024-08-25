@@ -14,6 +14,7 @@ import { Input } from "../ui/input";
 import InviteePermissionSelector from "./InviteePermissionSelector";
 import Invitee from "./Invitee";
 import { useSelf } from "@liveblocks/react/suspense";
+import { updateDocumentAccess } from "@/lib/actions/room.actions";
 
 
 const ShareDialog = ({
@@ -28,7 +29,11 @@ const ShareDialog = ({
   const [email, setEmail] = useState("");
   const user = useSelf();
 
-  const shareDocumentHandler = () => {};
+  const shareDocumentHandler = async() => {
+    setIsLoading(true);
+    await updateDocumentAccess(roomId, email, inviteeType)
+    setIsLoading(false);
+  };
   return (
     <>
       <Dialog open={open} onOpenChange={setOpen}>

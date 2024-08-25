@@ -1,10 +1,18 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import InviteePermissionSelector from "./InviteePermissionSelector";
+import { Button } from "../ui/button";
+import { removeCollaborator } from "@/lib/actions/room.actions";
 
 const Invitee = ({ roomId, creatorId, email, invitee, user }: InviteeProps) => {
   const [inviteeType, setInviteeType] = useState(invitee.userType || "viewer");
   const [isLoading, setIsLoading] = useState(false);
+
+  const handleRemoveCollaborator = async(email: string) => {
+    setIsLoading(true);
+    await removeCollaborator(roomId, email);
+    setIsLoading(false);
+  }
   return (
     <li className="flex items-center justify-between gap-2 py-3">
       <div className="flex mt-4 gap-2">
@@ -36,7 +44,9 @@ const Invitee = ({ roomId, creatorId, email, invitee, user }: InviteeProps) => {
             inviteeType={inviteeType}
             setInviteeType={setInviteeType}
           />
+        <Button type='submit' className="bg-red-500" onClick={() => handleRemoveCollaborator(invitee.email)}>Remove</Button>
         </div>
+
       )}
     </li>
   );
