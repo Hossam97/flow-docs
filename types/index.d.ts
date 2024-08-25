@@ -8,7 +8,7 @@ declare type AccessType = ["room:write"] | ["room:read", "room:presence:write"];
 
 declare type RoomAccesses = Record<string, AccessType>;
 
-declare type UserType = "creator" | "editor" | "viewer" | undefined;
+declare type UserType = "creator" | "editor" | "viewer";
 
 declare type RoomMetadata = {
   creatorId: string;
@@ -78,3 +78,21 @@ declare type AddDocumentBtnProps = {
 declare type DeleteModalProps = { roomId: string };
 
 declare type ThreadWrapperProps = { thread: ThreadData<BaseMetadata> };
+
+declare type ShareDialogProps = {
+  currentUserType: string | undefined;
+  collaborators: User[];
+  roomId: string;
+  creatorId: string;
+};
+
+declare type InviteeProps = {
+  roomId: string;
+  creatorId: string;
+  email: string,
+  invitee: User,
+  user: {
+    name: string;
+    avatar: string;
+};
+}
