@@ -1,4 +1,6 @@
-Flow Docs is a real-time collaborative text editor, similar to Google Docs, allowing multiple users to edit documents simultaneously. This project leverages cutting-edge technologies to deliver a smooth and efficient live editing experience, complete with user authentication, real-time notifications, and comments.
+**Flow Docs** is a real-time collaborative text editor, similar to Google Docs, allowing multiple users to edit documents simultaneously. This project leverages cutting-edge technologies to deliver a smooth and efficient live editing experience, complete with user authentication, real-time notifications, and comments.
+
+You can try it live at: https://flow-docs-zeta.vercel.app/
 ## Features
 - Real-time Collaboration: Multiple users can edit documents simultaneously with updates reflecting instantly.
 - User Authentication: Secure authentication using Clerk for managing users.
