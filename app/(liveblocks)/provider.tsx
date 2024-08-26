@@ -26,7 +26,6 @@ export function Provider({ children }: { children: ReactNode }) {
         currentUser: clerkUser?.emailAddresses[0].emailAddress!,
         roomId
       });
-      console.log('roomUsers:', roomUsers);
       return roomUsers;
     }}
     >
