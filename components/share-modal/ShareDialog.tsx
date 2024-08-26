@@ -31,7 +31,7 @@ const ShareDialog = ({
 
   const shareDocumentHandler = async() => {
     setIsLoading(true);
-    await updateDocumentAccess(roomId, email, inviteeType)
+    await updateDocumentAccess(roomId, email, inviteeType, user.info)
     setIsLoading(false);
   };
   return (
@@ -93,7 +93,7 @@ const ShareDialog = ({
                       key={collaborator.id}
                       roomId={roomId}
                       creatorId={creatorId}
-                      email={collaborator.email}
+                      email={collaborator.email!}
                       invitee={collaborator}
                       user={user.info}
                     />

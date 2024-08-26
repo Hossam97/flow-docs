@@ -22,11 +22,11 @@ declare type CreateDocumentParams = {
 };
 
 declare type User = {
-  id: string;
+  id?: string;
   name: string;
-  email: string;
+  email?: string;
   avatar: string;
-  color: string;
+  color?: string;
   userType?: UserType;
 };
 

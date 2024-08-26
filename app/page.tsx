@@ -1,6 +1,7 @@
 import AddDocBtn from "@/components/AddDocBtn";
 import DeleteModal from "@/components/DeleteModal";
 import Header from "@/components/Header";
+import Notifications from "@/components/Notifications";
 import { getAllDocuments } from "@/lib/actions/room.actions";
 import { dateConverter } from "@/lib/utils";
 import { currentUser } from "@clerk/nextjs/server";
@@ -17,7 +18,9 @@ const Home = async () => {
   return (
     <main className="home-container">
       <Header className="sticky left-0 top-0">
-        <p>Notifications</p>
+        <div className="flex items-center gap-2 lg:gap-4">
+          <Notifications />
+        </div>
       </Header>
 
       {documents.data.length > 0 ? (
@@ -56,7 +59,7 @@ const Home = async () => {
                     roomId={doc.id}
                     user={JSON.parse(JSON.stringify(user))}
                   />
-                 )}
+                )}
               </li>
             ))}
           </ul>

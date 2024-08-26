@@ -72,7 +72,8 @@ export const updateDocument = async (roomId: string, title: string) => {
 export const updateDocumentAccess = async (
   roomId: string,
   email: string,
-  userType: UserType
+  userType: UserType,
+  updatedBy: User
 ) => {
   try {
     const usersAccesses: RoomAccesses = {
@@ -82,8 +83,22 @@ export const updateDocumentAccess = async (
       usersAccesses,
     });
 
-    if (room) {
-      // TODO: notify the invitee with the access changes
+    if(room) {
+      const notificationId = nanoid();
+
+      await liveblocks.triggerInboxNotification({
+        userId: email,
+        kind: '$documentAccess',
+        subjectId: notificationId,
+        activityData: {
+          userType,
+          title: `You have been granted ${userType} access to the document by ${updatedBy.name}`,
+          updatedBy: updatedBy.name,
+          avatar: updatedBy.avatar,
+          email: updatedBy.email
+        },
+        roomId
+      })
     }
     revalidatePath(`document/${roomId}`);
     return parseStringify(room);
