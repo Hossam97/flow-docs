@@ -1,4 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Flow Docs is a real-time collaborative text editor, similar to Google Docs, allowing multiple users to edit documents simultaneously. This project leverages cutting-edge technologies to deliver a smooth and efficient live editing experience, complete with user authentication, real-time notifications, and comments.
+## Features
+
+	•	Real-time Collaboration: Multiple users can edit documents simultaneously with updates reflecting instantly.
+	•	User Authentication: Secure authentication using Clerk for managing users.
+	•	Live Notifications and Comments: Users can leave comments and receive notifications in real-time, powered by Liveblocks.
+	•	User Mentioning: Mention users in comments or text to get their attention.
+	•	Responsive UI: Built with Tailwind CSS and ShadCN components for a modern, responsive design.
+	•	Error Monitoring: Sentry is integrated to track and monitor errors for a seamless user experience.
+
+## Tech Stack
+
+	•	Frontend: TypeScript, Next.js, Tailwind CSS
+	•	Real-time Collaboration: Liveblocks
+	•	Authentication: Clerk
+	•	UI Components: ShadCN
+	•	Monitoring: Sentry
 
 ## Getting Started
 
