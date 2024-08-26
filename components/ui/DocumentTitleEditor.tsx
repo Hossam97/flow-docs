@@ -38,9 +38,6 @@ const DocumentTitleEditor = ({
       } catch (error) {
         console.log("Error:", error);
       }
-      // TODO: BUG: The revalidatePath() takes a bit of a time and the isLoading flag is being set
-      // before the path is revalidated, which is causing the "saving..." text to disappear before
-      // the new title gets saved.
       setIsLoading(false);
     }
   };
