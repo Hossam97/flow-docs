@@ -28,7 +28,7 @@ export const createDocument = async ({
 
     return parseStringify(room);
   } catch (error) {
-    console.log("An error happened while creating a room");
+    console.log("Error happened while creating a room");
   }
 };
 
@@ -41,7 +41,7 @@ export const getDocument = async ({
 }) => {
   const room = await liveblocks.getRoom(roomId);
   const userHasAccessToRoom = Object.keys(room.usersAccesses).includes(userId);
-  // if (!userHasAccessToRoom) throw new Error("You have no access to this room!");
+  if (!userHasAccessToRoom) throw new Error("You have no access to this room!");
   return parseStringify(room);
 };
 
@@ -105,3 +105,17 @@ export const removeCollaborator = async (roomId: string, email: string) => {
     console.log("Error while removing a collaborator:", error);
   }
 };
+
+
+export const deleteDocument = async(roomId: string, user: any) => {
+  try {
+    const room = await liveblocks.getRoom(roomId);
+    const userEmail = user.emailAddresses[0].emailAddress;
+    const userHasAccessToRoom = (room.usersAccesses[userEmail] as string[]).includes('room:write');
+    if (!userHasAccessToRoom) throw new Error("You have no access to delete this room!");
+    await liveblocks.deleteRoom(roomId);
+    revalidatePath('/');
+  } catch (error) {
+    console.log('Error while deleting the room:', error)
+  }
+}
