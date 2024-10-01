@@ -9,9 +9,9 @@ const Header = ({children, className}: HeaderProps) => {
     <div className={cn('header', className)}>
         <Link href="/" className='md:w-[150px]'>
             <Image 
-                src="/assets/icons/logo.svg"
+                src="/assets/images/folder.png"
                 alt="Logo with name"
-                width={120}
+                width={100}
                 height={40}
                 className='hidden md:block'
             />
